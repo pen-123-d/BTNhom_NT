@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 void Bai1(int a[100][100], int dong, int cot)
@@ -111,7 +112,81 @@ void menu()
 	cout << "2.Tim phan tu lon nhat tren bien ma tran" << endl;
 	cout << "3.Bao nhieu pt co chu so hai xuat hien trong chu so cua no" << endl;
 	cout << "4.Xuat cac phan tu cuc tieu cua ma tran " << endl;
+	cout << "5.Xap sep mt dong le tang dong chan giam" << endl;
+	cout << "6.Xap sep mt dong le giam dong chan tang" << endl;
+	cout << "8.Liet chi so cacdong chua toan so chan" << endl;
 	cout << "-----------------" << endl;
+}
+void Bai5(int a[100][100], int dong, int cot)
+{
+
+	
+		for (int i = 0; i < dong; i++)
+		{
+			if (i % 2 == 0)
+			{
+				sort(a[i], a[i] + cot);
+				
+				
+			}
+			else 
+			{
+				sort(a[i], a[i] + cot, greater<int>());
+			}
+		}
+	
+		for (int i = 0; i < dong; i++)
+		{
+			for (int j = 0; j < cot; j++)
+			{
+				cout << a[i][j] << " ";
+			}
+			cout << endl;
+		}
+}
+void Bai6(int a[100][100], int dong, int cot)
+{
+	for (int i = 0; i < dong; i++)
+	{
+		if (i % 2 == 0)
+		{
+			
+
+			sort(a[i], a[i] + cot, greater<int>());
+		}
+		else
+		{
+			sort(a[i], a[i] + cot);
+		}
+	}
+
+	for (int i = 0; i < dong; i++)
+	{
+		for (int j = 0; j < cot; j++)
+		{
+			cout << a[i][j] << " ";
+		}
+		cout << endl;
+	}
+}
+void Bai8(int a[100][100], int dong, int cot)
+{
+	
+	for (int i = 0; i < dong; ++i) {
+		bool isAllEven = true;
+		for (int j = 0; j < cot; ++j)
+		{
+			if (a[i][j] % 2 != 0)
+			{
+				isAllEven = false;
+				break;
+			}
+		}
+		if (isAllEven) {
+			cout << i << " ";
+		}
+	}
+	cout << endl;
 }
 
 int main()
@@ -149,7 +224,16 @@ int main()
 		case 4:
 			Bai4(a, dong, cot);
 			break;
-
+		case 5:
+			Bai5(a, dong, cot);
+			break;
+		case 6:
+			Bai6(a, dong, cot);
+			break;
+		case 8:
+			Bai8(a, dong, cot);
+			break;
+	
 		}
 
 	} while (n != 0);
