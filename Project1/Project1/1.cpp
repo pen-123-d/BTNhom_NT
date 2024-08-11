@@ -86,12 +86,31 @@ void Bai3(int a[100][100], int dong ,int cot)
 	}
 	cout << "Co " << dem << " Phan tu co chu so hai trong chu so cua no " << endl;
 }
+void Bai4(int a[100][100], int dong ,int cot)
+{
+	for (int i = 0; i < dong; i++) 
+	{
+		for (int j = 0; j < cot; j++)
+		{
+			bool isCucTieu = true;
+			
+			if (i > 0 && a[i][j] >= a[i - 1][j]) isCucTieu = false;
+			if (i < dong - 1 && a[i][j] >= a[i + 1][j]) isCucTieu = false;
+			if (j > 0 && a[i][j] >= a[i][j - 1]) isCucTieu = false;
+			if (j < cot - 1 && a[i][j] >= a[i][j + 1]) isCucTieu = false;
+			
+			if (isCucTieu) cout << a[i][j] << " ";
+		}
+	}
+	cout << endl;
+}
 void menu()
 {
 	cout << "-----------------" << endl;
 	cout << "1.Xuat cac cot chua so le " << endl;
 	cout << "2.Tim phan tu lon nhat tren bien ma tran" << endl;
 	cout << "3.Bao nhieu pt co chu so hai xuat hien trong chu so cua no" << endl;
+	cout << "4.Xuat cac phan tu cuc tieu cua ma tran " << endl;
 	cout << "-----------------" << endl;
 }
 
@@ -127,7 +146,9 @@ int main()
 		case 3:
 			Bai3(a, dong, cot);
 			break;
-
+		case 4:
+			Bai4(a, dong, cot);
+			break;
 
 		}
 
