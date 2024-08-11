@@ -30,11 +30,44 @@ void Bai1(int a[100][100], int dong, int cot)
 	}
 }
 
-
+void Bai2(int a[100][100], int dong, int cot)
+{
+	int tmp=0;
+	for (int i = 0; i < cot; i++)
+	{
+		if (tmp<a[0][i] )
+		{
+			tmp = a[0][i];
+		}
+	}
+	for (int i =0;i<cot ;i++)
+	{
+		if (tmp<a[dong - 1][i] )
+		{
+			tmp = a[dong - 1][i];
+		}
+	}
+	for (int i = 0; i < dong; i++)
+	{
+		if (tmp < a[0][i])
+		{
+			tmp = a[0][i];
+		}
+	}
+	for (int i = 0; i < dong; i++)
+	{
+		if (tmp < a[cot - 1][i])
+		{
+			tmp = a[cot - 1][i];
+		}
+	}
+	cout << tmp << endl;
+}
 void menu()
 {
 	cout << "-----------------" << endl;
 	cout << "1.Xuat cac cot chua so le " << endl;
+	cout << "2.Tim phan tu lon nhat tren bien ma tran" << endl;
 	cout << "-----------------" << endl;
 }
 
@@ -64,6 +97,10 @@ int main()
 		case 1:
 			 Bai1(a, dong, cot);
 			break;
+		case 2:
+			Bai2(a, dong, cot);
+			break;
+
 		}
 
 	} while (n != 0);
